@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<head>
+
+<!--META-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>DHBVN</title>
+
+<!--STYLESHEETS-->
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script>
+function getParams(){
+                var idx = document.URL.indexOf('?');
+                var params = new Array();
+                if (idx != -1) {
+                                var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+                                for (var i=0; i<pairs.length; i++){
+                                                nameVal = pairs[i].split('=');
+                                                params[nameVal[0]] = nameVal[1];
+                                }
+                }
+                return params;
+}
+params = getParams();
+accountNum = unescape(params["accountNum"]);
+userName = unescape(params["userName"]);
+billAmt = unescape(params["billAmt"]);
+address = unescape(params["address"]);
+discomName = unescape(params["discomName"]);
+//age = unescape(params["age"]);
+alert(address +"address" );
+
+			//document.getElementById("accountNum").innerHTML =  accountNum;
+			//document.getElementById("userName").innerHTML =  userName;
+			//document.getElementById("billAmt").innerHTML =  billAmt;
+			//document.getElementById("address").innerHTML =  address;
+			//document.getElementById("discomName").innerHTML =  discomName;
+
+
+//document.write("firstname = " + accountNum + "<br>");
+//document.write("lastname = " + lastname + "<br>");
+//document.write("age = " + age + "<br>");
+</script>
+
+
+
+
+</head>
+<body>
+
+<div id="content">
+
+<header>
+<a href="index.html"><img src="images/logo.png" width="111" height="80" alt="DHBVN"></a>
+</header>
+
+<div class="profile">
+
+
+
+<!-- BEGIN LEFT CONTENT -->
+       
+      <h1>Welcome to DHBVN</h1>
+        <h3>YOUR FULL NAME</h3>
+        <span>Last login on June 13, 2013 at 8:32 pm</span>
+      <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+      <!-- close #commentText --> 
+      
+      <Table>
+        <tr>
+          <th colspan="4">Consumer Details</th>
+        </tr>
+          <tr >
+            <td width="15%"> Account No. </td>
+            <td width="35%"><script>document.write(accountNum);</script></td>
+            <td width="15%"> Name </td>
+            <td width="35%"><script>document.write(userName);</script></td>
+          </tr>
+          <tr>
+            <td > Billing Address </td>
+            <td ><script>document.write(address);</script></td>
+            <td > Premise Address </td>
+            <td > M P TEWARI  PLOT NO 10 PAWANPURI  NEAR POST OFFICE 0692,LUCKNOW, </td>
+          </tr>
+          <tr>
+            <td > Discom Name </td>
+            <td > <script>document.write(discomName);</script> </td>
+            <td > Sub-Division </td>
+            <td > (Temp SDO) 3126329 </td>
+          </tr>
+          <tr>
+            <td > Division </td>
+            <td > ALAMBAGH </td>
+            <td > Supply Type </td>
+            <td > 10 </td>
+          </tr>
+          <tr>
+            <td > Security Amount (Rs.) </td>
+            <td > 6 </td>
+            <td > Sanctioned Load </td>
+            <td > 2.00 KW </td>
+          </tr>
+          <tr>
+            <td > Meter Number </td>
+            <td > WD1990 </td>
+            <td ></td>
+            <td ></td>
+          </tr>
+        <tr >
+          <th colspan="4"> Bill Details </th>
+        </tr>
+        <tr >
+          <td width="20%"> Bill Amount </td>
+          <td width="30%"> Rs.<script>document.write(billAmt);</script></td>
+          <td width="20%"> Due Date </td>
+          <td width="30%"> 13-12-2012 </td>
+        </tr>
+        <tr>
+          <td > Bill Date </td>
+          <td > 06-12-2012 </td>
+          <td > Last Paid Amount </td>
+          <td > Rs.2202.0 </td>
+        </tr>
+        <tr>
+          <td > Last Payment </td>
+          <td > Date 26-12-2012 </td>
+          <td > Outstanding Amount </td>
+          <td > Rs.0 </td>
+        </tr>
+        <tr>
+          <th colspan="4">Consumption Details</th>
+        </tr>
+      </table>
+    </div>
+
+
+	
+
+
+
+
+</body></html>

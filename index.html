@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<head>
+
+<!--META-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>DHBVN</title>
+
+<!--STYLESHEETS-->
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+<!--SCRIPTS-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" type="text/javascript"></script>
+<!--Slider-in icons-->
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".username").focus(function() {
+		$(".user-icon").css("left","-48px");
+	});
+	$(".username").blur(function() {
+		$(".user-icon").css("left","0px");
+	});
+	
+	$(".password").focus(function() {
+		$(".pass-icon").css("left","-48px");
+	});
+	$(".password").blur(function() {
+		$(".pass-icon").css("left","0px");
+	});
+});
+</script>
+
+
+
+<script src="js/jquery-1.4.1.min.js"></script>
+<script>
+function validateUser(){
+	alert("in func");
+	var accountNum= document.getElementById("accountNum").value;
+	var password= document.getElementById("password").value;
+	alert(accountNum   +  password );
+	
+	//var JSONObject= {"accountNum":accountNum, "password":password };
+	//var jsonData = JSON.stringify(JSONObject);
+	//var jsonData = $("#contactform").serializeJSON();
+	alert("jsonData" );
+
+
+    $.ajax({
+          type:'GET',
+          url: 'http://www.dhbvn.org.in/Rapdrp/restAPI/login/validateData?accountNum='+accountNum + '&password=' + password,
+          cache: false,
+		  dataType: 'json',
+          processData: false,
+		  async:false,
+          contentType: "application/javascript; charset=utf-8",
+          crossDomain: true,
+          success: function(response){
+		  alert("Success");
+		  alert(response.name);
+					//document.getElementById("userName").value = response.userName;
+					//document.getElementById("billAmt").value = response.billAmt;
+					//document.getElementById("address").value = response.address;
+					//document.getElementById("discomName").value = response.discomName;
+
+					document.getElementById("contactform").action="profile.html";
+					document.getElementById("contactform").submit();
+                     
+                     //alert(response.password);
+                    },
+          error:function (xhr, ajaxOptions, thrownError, request, error){
+              			alert('xrs.status = ' + xhr.status + '\n' + 
+                      	'thrown error = ' + thrownError + '\n' +
+                      	'xhr.statusText = '  + xhr.statusText + '\n' +
+                      	'request = ' + request + '\n' +
+                      	'error = ' + error);
+                	  },
+          complete : function(){
+             			alert(this.url);
+         			  }
+     });
+}
+</script>
+
+</head>
+<body>
+
+<!--WRAPPER-->
+<div id="wrapper">
+
+<center><a href="profile.html"><img src="images/log.png" width="211" height="168" alt="DHBVN"></a>
+</center>
+
+	<!--SLIDE-IN ICONS-->
+    <div class="user-icon" style="left: 0px;"></div>
+    <div class="pass-icon" style="left: 0px;"></div>
+    <!--END SLIDE-IN ICONS-->
+
+<!--LOGIN FORM-->
+<form name="login-form" id="contactform" class="login-form" action="" method="get">
+	<input type="hidden" name="userName" class="textfield" id="userName"  value="abc" /> 
+	<input type="hidden" name="billAmt" class="textfield" id="billAmt"  value="abc"  /> 
+	<input type="hidden" name="address" class="textfield" id="address"  value="abc"  /> 
+	<input type="hidden" name="discomName" class="textfield" id="discomName"  value="abc"  /> 
+	<!--HEADER-->
+    <div class="header">
+    
+   </div>
+    <!--END HEADER-->
+	
+	<!--CONTENT-->
+    <div class="content">
+	<!--USERNAME--><input name="accountNum" id="accountNum" class="input username" onFocus="this.value=''" type="text" value=""><!--END USERNAME-->
+    <!--PASSWORD--><input name="password" id="password" class="input password" onFocus="this.value=''" type="password" value=""><!--END PASSWORD-->
+    </div>
+    <!--END CONTENT-->
+    
+    <!--FOOTER-->
+    <div class="footer">
+    <!--LOGIN BUTTON--><input name="submit" class="button" type="submit" value="Login" onclick="javascript:validateUser();"><!--END LOGIN BUTTON-->
+    <!--REGISTER BUTTON--><input name="submit" class="register" type="submit" value="Register" onClick="location.href='profile.html'"><!--END REGISTER BUTTON-->
+
+   </div>
+    <!--END FOOTER-->
+
+</form>
+<!--END LOGIN FORM-->
+
+</div>
+<!--END WRAPPER-->
+
+<!--GRADIENT--><div class="gradient"></div><!--END GRADIENT-->
+
+
+</body></html>
